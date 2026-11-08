@@ -31,10 +31,13 @@ public enum ManiIconName: String, Sendable, CaseIterable {
     case qrCode = "qrcode"
     case card = "creditcard.fill"
     case cash = "banknote.fill"
+    case credit = "clock.badge.checkmark"
     case splitPayment = "arrow.triangle.branch"
     case avatar = "person.crop.circle.fill"
     case photo
     case image = "photo.on.rectangle"
+    case pause = "pause.fill"
+    case tray = "tray.full.fill"
 }
 
 public struct IconView: View {

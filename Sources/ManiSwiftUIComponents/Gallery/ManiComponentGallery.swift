@@ -9,6 +9,7 @@ struct ManiComponentGallery: View {
     @State private var segment = "cash"
     @State private var filter: String?
     @State private var tabSelection = 0
+    @State private var cashAmount = "583"
 
     var body: some View {
         ScrollView {
@@ -87,6 +88,28 @@ struct ManiComponentGallery: View {
                     primaryAction: {},
                     secondaryTitle: "Hold bill",
                     secondaryAction: {}
+                )
+
+                HStack(spacing: ManiSpacing.sm) {
+                    ManiCategoryTile(title: "Bangles", isHotkey: true, action: {})
+                    ManiCategoryTile(title: "Earrings", action: {})
+                }
+
+                ManiCartLineRow(
+                    title: "Bangles 12",
+                    subtitle: "₹120/unit · 10% off",
+                    totalText: "₹216",
+                    quantityUnitText: "2 × ₹108",
+                    onTap: {},
+                    onRemove: {}
+                )
+
+                ManiPaymentModeRow(
+                    title: "Cash",
+                    icon: .cash,
+                    isSelected: true,
+                    amountText: $cashAmount,
+                    onToggle: { _ in }
                 )
             }
             .padding(ManiSpacing.lg)
