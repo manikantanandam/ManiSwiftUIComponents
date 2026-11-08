@@ -2,6 +2,16 @@
 
 Guidance for working in this repository — keep this current as the package evolves.
 
+## Quick Index
+
+- **Purpose** — independent, themeable SwiftUI component library (iOS 17+/macOS 14+); first consumer is apoorva-skip via a local `ApoorvaUI` library.
+- **Design-token reference** — base color tokens, 5 accent presets, spacing, radii, typography scales (source of truth: apoorva-skip's `docs/04-ui-design.md`, mirrored here).
+- **Theme architecture** — `ManiTheme` protocol, `ManiThemeContext`, `.maniTheme(...)` injection; this package does NOT implement org/user theme-resolution policy.
+- **Component inventory** — table of ~17 shipped (`Mani*`) components + status; QA via `Gallery/ManiComponentGallery.swift` (no automated UI tests).
+- **Usage conventions** — `Mani` prefix on every public type; new components/themes follow a fixed folder/extension pattern.
+- **Skip/Android portability rules** — **no `UIKit`/`UIColor`, no `.onTapGesture`**; icons only via `ManiIconName`/`IconView`.
+- **Theming-extension guide for consumers** — step-by-step for an app (e.g. `ApoorvaUI`) to define and apply its own resolved theme.
+
 ## Purpose
 
 `ManiSwiftUIComponents` is an independent, themeable SwiftUI component library. It is not tied to any one app: it provides design-token/theme infrastructure plus a set of ready-made components, and ships a few example color presets, so any consuming app can plug in its own brand colors and get consistent, theme-aware UI across its screens.
