@@ -38,6 +38,53 @@ public enum ManiIconName: String, Sendable, CaseIterable {
     case image = "photo.on.rectangle"
     case pause = "pause.fill"
     case tray = "tray.full.fill"
+    case settings = "gearshape"
+    case bell
+    case sync = "arrow.triangle.2.circlepath"
+    case chart = "chart.bar"
+    case box = "shippingbox"
+    case truck = "truck.box"
+    case wallet = "wallet.pass"
+    case star = "star.fill"
+    case phone = "phone.fill"
+    case message = "message.fill"
+    case scan = "barcode.viewfinder"
+    case trash
+    case edit = "pencil"
+    case undo = "arrow.uturn.backward"
+    case download = "arrow.down.circle"
+    case upload = "arrow.up.circle"
+    case globe
+    case fingerprint = "touchid"
+    case mail = "envelope"
+    case gift
+    case tag
+    case scale = "scalemass"
+    case history = "clock.arrow.circlepath"
+    case help = "questionmark.circle"
+    case signOut = "rectangle.portrait.and.arrow.right"
+    case shield = "checkmark.shield"
+    case device = "iphone"
+    case store = "storefront"
+    case grid = "square.grid.2x2"
+    case list = "list.bullet"
+    case backspace = "delete.left"
+    case people = "person.3"
+    case wifiOff = "wifi.slash"
+    case drag = "line.3.horizontal"
+    case camera
+    case warranty = "wrench.and.screwdriver"
+    case order = "doc.text.below.ecg"
+    case cashIn = "arrow.down.left.circle"
+    case cashOut = "arrow.up.right.circle"
+    case percent
+    case sparkles
+    case flag
+    case font = "textformat"
+    case palette = "paintpalette"
+    case sun = "sun.max"
+    case key
+    case link
 }
 
 public struct IconView: View {

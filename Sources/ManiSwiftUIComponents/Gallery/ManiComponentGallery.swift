@@ -10,6 +10,9 @@ struct ManiComponentGallery: View {
     @State private var filter: String?
     @State private var tabSelection = 0
     @State private var cashAmount = "583"
+    @State private var keypadText = "250"
+    @State private var pick = "fancy"
+    @State private var swatch = "plum"
 
     var body: some View {
         ScrollView {
@@ -111,6 +114,32 @@ struct ManiComponentGallery: View {
                     amountText: $cashAmount,
                     onToggle: { _ in }
                 )
+
+                ManiStepIndicator(current: 2, total: 4)
+                ManiHeroAmount("₹\(keypadText)", caption: "of ₹1,120 due")
+                ManiKeypad { keypadText = $0.apply(to: keypadText) }
+                ManiCodeField(length: 4, code: "48")
+                ManiCodeField(length: 4, code: "48", secure: true)
+                ManiKeyValueSummary(rows: [ManiKeyValue("Subtotal", "₹560"), ManiKeyValue("Discount", "-₹23"), ManiKeyValue("Total", "₹583")])
+                ManiBarChartCard(title: "Last 7 days", bars: [ManiChartDatum("M", 4), ManiChartDatum("T", 7), ManiChartDatum("W", 5), ManiChartDatum("T", 9)])
+                ManiLineChartCard(title: "Sales", caption: "This week", values: [3, 5, 4, 8, 6, 9, 7])
+                ManiSplitBarCard(title: "Payment modes", segments: [ManiSplitSegment("Cash", 52), ManiSplitSegment("UPI", 38), ManiSplitSegment("Card", 10)])
+                ManiPermissionMatrix(
+                    columns: [(value: "owner", title: "Owner"), (value: "cashier", title: "Cashier")],
+                    rows: [(value: "discount", title: "Give discount"), (value: "cancel", title: "Cancel bill")],
+                    value: { row, column in column == "owner" || row == "discount" },
+                    isLocked: { _, column in column == "owner" },
+                    onToggle: { _, _ in }
+                )
+                ManiPickList(options: [
+                    ManiPickOption(value: "kirana", title: "Kirana / General", subtitle: "Quick search, loose items", swatch: .teal),
+                    ManiPickOption(value: "fancy", title: "Fancy & Gifts", subtitle: "Item grid, variants", swatch: .purple)
+                ], selection: $pick)
+                ManiSwatchRow(options: [(value: "teal", title: "Teal", color: .teal), (value: "plum", title: "Plum", color: .purple)], selection: $swatch)
+                ManiProgressMeter(label: "Free bills this month", value: 82, total: 100)
+                ManiProviderButton(provider: .google, title: "Continue with Google", action: {})
+                ManiEmptyState(icon: .mail, title: "Check your inbox", message: "We sent a link to verify your email.", actionTitle: "Open mail app", action: {})
+                ManiUndoBanner(message: "Saved by mistake? 4:52 left", actionTitle: "Undo bill", action: {})
             }
             .padding(ManiSpacing.lg)
         }
