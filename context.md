@@ -11,6 +11,7 @@ Guidance for working in this repository — keep this current as the package evo
 - **Usage conventions** — `Mani` prefix on every public type; new components/themes follow a fixed folder/extension pattern.
 - **Skip/Android portability rules** — **no `UIKit`/`UIColor`, no `.onTapGesture`**; icons only via `ManiIconName`/`IconView`.
 - **Theming-extension guide for consumers** — step-by-step for an app (e.g. `ApoorvaUI`) to define and apply its own resolved theme.
+- **Decisions log** — `decisions/`: dated exploration/decision records; check before re-exploring a topic. A `Stop` hook enforces writing an entry there whenever a session explored code or exited plan mode.
 
 ## Purpose
 
