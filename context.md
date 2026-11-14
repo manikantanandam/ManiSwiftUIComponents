@@ -71,7 +71,7 @@ Accessibility: every text/background pair must stay ≥4.5:1; status is always c
 |---|---|---|
 | ManiButton | v1 | primary/secondary/outline, loading state |
 | ManiCard | v1 | |
-| ManiInputField | v1 | `ManiKeyboardKind` instead of `UIKeyboardType` |
+| ManiInputField | v1 | `ManiKeyboardKind` instead of `UIKeyboardType`; optional `focus: Binding<Bool>`, `submitKind: ManiSubmitKind`, `onSubmit` for field chaining |
 | ManiChip / ManiChipGroup | v1 | single-selection filter row |
 | ManiSegmentedControl | v1 | |
 | ManiStatusBadge | v1 | success/warning/error/neutral |

@@ -22,6 +22,23 @@ public enum ManiKeyboardKind: Sendable {
     #endif
 }
 
+/// Portable stand-in for `SubmitLabel` (the Return key's caption).
+public enum ManiSubmitKind: Sendable {
+    case done
+    case next
+    case go
+    case search
+
+    var submitLabel: SubmitLabel {
+        switch self {
+        case .done: .done
+        case .next: .next
+        case .go: .go
+        case .search: .search
+        }
+    }
+}
+
 public struct ManiInputField: View {
     @Environment(\.maniTheme) private var theme
     @FocusState private var isFocused: Bool
@@ -32,14 +49,24 @@ public struct ManiInputField: View {
     private let errorText: String?
     private let keyboard: ManiKeyboardKind
     private let isSecure: Bool
+    private let focus: Binding<Bool>?
+    private let submitKind: ManiSubmitKind
+    private let onSubmit: (() -> Void)?
 
+    /// - Parameters:
+    ///   - focus: optional two-way focus binding so a parent can chain fields (Next/Done).
+    ///   - submitKind: caption of the Return key.
+    ///   - onSubmit: called when Return is pressed.
     public init(
         label: String,
         text: Binding<String>,
         placeholder: String = "",
         errorText: String? = nil,
         keyboard: ManiKeyboardKind = .default,
-        isSecure: Bool = false
+        isSecure: Bool = false,
+        focus: Binding<Bool>? = nil,
+        submitKind: ManiSubmitKind = .done,
+        onSubmit: (() -> Void)? = nil
     ) {
         self.label = label
         self._text = text
@@ -47,6 +74,9 @@ public struct ManiInputField: View {
         self.errorText = errorText
         self.keyboard = keyboard
         self.isSecure = isSecure
+        self.focus = focus
+        self.submitKind = submitKind
+        self.onSubmit = onSubmit
     }
 
     public var body: some View {
@@ -59,6 +89,14 @@ public struct ManiInputField: View {
                 .font(theme.typography.body)
                 .foregroundStyle(theme.base.text)
                 .focused($isFocused)
+                .submitLabel(submitKind.submitLabel)
+                .onSubmit { onSubmit?() }
+                .onChange(of: isFocused) { _, newValue in
+                    if focus?.wrappedValue != newValue { focus?.wrappedValue = newValue }
+                }
+                .onChange(of: focus?.wrappedValue ?? false) { _, newValue in
+                    if isFocused != newValue { isFocused = newValue }
+                }
                 #if canImport(UIKit)
                 .keyboardType(keyboard.uiKeyboardType)
                 #endif
