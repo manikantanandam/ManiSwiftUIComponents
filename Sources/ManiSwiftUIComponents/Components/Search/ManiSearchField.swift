@@ -4,10 +4,14 @@ public struct ManiSearchField: View {
     @Environment(\.maniTheme) private var theme
     @Binding private var text: String
     private let placeholder: String
+    private let focus: Binding<Bool>?
+    @FocusState private var isFocused: Bool
 
-    public init(text: Binding<String>, placeholder: String = "Search") {
+    /// - Parameter focus: optional two-way focus binding so a parent can react to / drive focus.
+    public init(text: Binding<String>, placeholder: String = "Search", focus: Binding<Bool>? = nil) {
         self._text = text
         self.placeholder = placeholder
+        self.focus = focus
     }
 
     public var body: some View {
@@ -16,6 +20,13 @@ public struct ManiSearchField: View {
             TextField(placeholder, text: $text)
                 .font(theme.typography.body)
                 .foregroundStyle(theme.base.text)
+                .focused($isFocused)
+                .onChange(of: isFocused) { _, newValue in
+                    if focus?.wrappedValue != newValue { focus?.wrappedValue = newValue }
+                }
+                .onChange(of: focus?.wrappedValue ?? false) { _, newValue in
+                    if isFocused != newValue { isFocused = newValue }
+                }
             if !text.isEmpty {
                 Button {
                     text = ""
