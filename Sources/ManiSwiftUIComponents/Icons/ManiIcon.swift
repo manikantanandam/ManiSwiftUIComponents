@@ -5,7 +5,7 @@ import SwiftUI
 /// Material Symbol mapping under Skip on Android. Validate new additions
 /// against an actual Android build before relying on them.
 public enum ManiIconName: String, Sendable, CaseIterable {
-    case search
+    case search = "magnifyingglass"
     case cart = "cart.fill"
     case customer = "person.fill"
     case customers = "person.2.fill"
