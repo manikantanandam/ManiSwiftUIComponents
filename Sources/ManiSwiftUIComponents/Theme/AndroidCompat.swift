@@ -1,16 +1,24 @@
-#if os(Android)
 import SwiftUI
 
-// SkipSwiftUI marks `Font.monospacedDigit()` unavailable and declares `strokeBorder` ambiguously.
-// Declaring the same signatures in this module shadows the imported ones so call sites stay unchanged.
+// SkipSwiftUI (Android) declares `strokeBorder` ambiguously and marks `monospacedDigit()` unavailable.
+// `maniBorder` is the single call site for both platforms; Android strokes centred instead of inset.
 
+extension InsettableShape {
+    func maniBorder<S: ShapeStyle>(_ content: S, lineWidth: CGFloat = 1) -> some View {
+        #if os(Android)
+        stroke(content, lineWidth: lineWidth)
+        #else
+        strokeBorder(content, lineWidth: lineWidth)
+        #endif
+    }
+}
+
+#if os(Android)
 extension Font {
     func monospacedDigit() -> Font { self }
 }
 
-extension InsettableShape {
-    func strokeBorder<S: ShapeStyle>(_ content: S, lineWidth: CGFloat = 1, antialiased: Bool = true) -> some View {
-        stroke(content, lineWidth: lineWidth)
-    }
+extension Text {
+    func monospacedDigit() -> Text { self }
 }
 #endif

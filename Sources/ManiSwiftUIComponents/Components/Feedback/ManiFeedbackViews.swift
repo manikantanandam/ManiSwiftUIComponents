@@ -109,7 +109,7 @@ public struct ManiProviderButton: View {
         .clipShape(RoundedRectangle(cornerRadius: theme.radii.button, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: theme.radii.button, style: .continuous)
-                .strokeBorder(theme.base.border, lineWidth: 1)
+                .maniBorder(theme.base.border, lineWidth: 1)
         )
     }
 
@@ -144,7 +144,7 @@ public struct ManiCodeField: View {
                 if secure {
                     Circle()
                         .fill(filled ? theme.accent.accent : Color.clear)
-                        .overlay(Circle().strokeBorder(filled ? theme.accent.accent : theme.base.border, lineWidth: 2))
+                        .overlay(Circle().maniBorder(filled ? theme.accent.accent : theme.base.border, lineWidth: 2))
                         .frame(width: 18, height: 18)
                 } else {
                     Text(filled ? String(characters[index]) : "")
@@ -155,8 +155,8 @@ public struct ManiCodeField: View {
                         .clipShape(RoundedRectangle(cornerRadius: theme.radii.input, style: .continuous))
                         .overlay(
                             RoundedRectangle(cornerRadius: theme.radii.input, style: .continuous)
-                                .strokeBorder(index == characters.count ? theme.accent.accent : theme.base.border,
-                                              lineWidth: index == characters.count ? 2 : 1)
+                                .maniBorder(index == characters.count ? theme.accent.accent : theme.base.border,
+                                            lineWidth: index == characters.count ? 2 : 1)
                         )
                 }
             }

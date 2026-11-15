@@ -44,7 +44,7 @@ public struct ManiActionBar: View {
         .clipShape(RoundedRectangle(cornerRadius: theme.radii.sheet, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: theme.radii.sheet, style: .continuous)
-                .strokeBorder(theme.base.border, lineWidth: 1)
+                .maniBorder(theme.base.border, lineWidth: 1)
         )
         .shadow(color: .black.opacity(0.08), radius: 12, y: -2)
     }

@@ -106,7 +106,7 @@ public struct ManiInputField: View {
                 .clipShape(RoundedRectangle(cornerRadius: theme.radii.input, style: .continuous))
                 .overlay(
                     RoundedRectangle(cornerRadius: theme.radii.input, style: .continuous)
-                        .strokeBorder(borderColor, lineWidth: isFocused ? 2 : 1)
+                        .maniBorder(borderColor, lineWidth: isFocused ? 2 : 1)
                 )
 
             if let errorText {

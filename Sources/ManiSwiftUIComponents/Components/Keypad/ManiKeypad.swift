@@ -47,7 +47,7 @@ public struct ManiKeypad: View {
                     .clipShape(RoundedRectangle(cornerRadius: theme.radii.button, style: .continuous))
                     .overlay(
                         RoundedRectangle(cornerRadius: theme.radii.button, style: .continuous)
-                            .strokeBorder(theme.base.border, lineWidth: 1)
+                            .maniBorder(theme.base.border, lineWidth: 1)
                     )
             }
             .buttonStyle(.plain)

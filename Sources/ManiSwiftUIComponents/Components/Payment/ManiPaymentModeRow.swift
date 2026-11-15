@@ -47,7 +47,7 @@ public struct ManiPaymentModeRow: View {
         .clipShape(RoundedRectangle(cornerRadius: theme.radii.card, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: theme.radii.card, style: .continuous)
-                .strokeBorder(isSelected ? theme.base.success : theme.base.border, lineWidth: isSelected ? 2 : 1)
+                .maniBorder(isSelected ? theme.base.success : theme.base.border, lineWidth: isSelected ? 2 : 1)
         )
     }
 }

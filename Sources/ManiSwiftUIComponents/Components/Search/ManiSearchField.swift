@@ -42,7 +42,7 @@ public struct ManiSearchField: View {
         .clipShape(RoundedRectangle(cornerRadius: theme.radii.input, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: theme.radii.input, style: .continuous)
-                .strokeBorder(theme.base.border, lineWidth: 1)
+                .maniBorder(theme.base.border, lineWidth: 1)
         )
     }
 }
