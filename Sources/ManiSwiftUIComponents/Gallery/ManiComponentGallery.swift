@@ -1,3 +1,4 @@
+#if !os(Android)  // Dev-only gallery: uses #Preview and safeAreaInset, unavailable in SkipSwiftUI.
 import SwiftUI
 
 /// A scrollable showcase of every component, for manual QA in Xcode
@@ -167,3 +168,4 @@ struct ManiComponentGallery: View {
         .maniTheme(.apoorvaInk, style: .bold)
         .preferredColorScheme(.dark)
 }
+#endif
