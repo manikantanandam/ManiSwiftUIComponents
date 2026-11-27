@@ -2,7 +2,7 @@ import SwiftUI
 
 /// The big centred amount used on collect, discount, weight, receipt and similar screens.
 public struct ManiHeroAmount: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let amount: String
     private let caption: String?
     private let icon: ManiIconName?

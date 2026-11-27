@@ -24,9 +24,9 @@ public struct ManiTabCenterAction: Sendable {
 /// Home | Bills | [+ New bill] | Customers | More, with a raised circular
 /// (Clean) or square (Bold) center action.
 public struct ManiBottomTabs: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let tabs: [ManiTabItem]
-    @Binding private var selection: Int
+    @Binding var selection: Int
     private let centerAction: ManiTabCenterAction?
 
     public init(tabs: [ManiTabItem], selection: Binding<Int>, centerAction: ManiTabCenterAction? = nil) {

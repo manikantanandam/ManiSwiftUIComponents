@@ -4,7 +4,7 @@ import SwiftUI
 /// tapping it doesn't step a quantity in place; it's meant to open a detail/price
 /// screen, so there's no +/- affordance here.
 public struct ManiCategoryTile: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let title: String
     private let isHotkey: Bool
     private let action: () -> Void
@@ -39,7 +39,7 @@ public struct ManiCategoryTile: View {
         .clipShape(RoundedRectangle(cornerRadius: theme.radii.card, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: theme.radii.card, style: .continuous)
-                .strokeBorder(theme.base.border, lineWidth: 1)
+                .maniBorder(theme.base.border, lineWidth: 1)
         )
     }
 }

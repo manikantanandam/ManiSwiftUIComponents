@@ -3,7 +3,7 @@ import SwiftUI
 /// The "CartBar" from the spec — a floating bar above the tab bar, e.g.
 /// checkout's "Collect ₹583" / "Hold bill".
 public struct ManiActionBar: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let summaryText: String?
     private let primaryTitle: String
     private let primaryAction: () -> Void
@@ -44,7 +44,7 @@ public struct ManiActionBar: View {
         .clipShape(RoundedRectangle(cornerRadius: theme.radii.sheet, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: theme.radii.sheet, style: .continuous)
-                .strokeBorder(theme.base.border, lineWidth: 1)
+                .maniBorder(theme.base.border, lineWidth: 1)
         )
         .shadow(color: .black.opacity(0.08), radius: 12, y: -2)
     }

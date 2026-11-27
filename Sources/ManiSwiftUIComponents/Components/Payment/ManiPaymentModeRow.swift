@@ -4,11 +4,11 @@ import SwiftUI
 /// when selected. Selecting more than one row at once is how a bill gets split across
 /// payment methods — there's no separate "split" screen, it's just this row repeated.
 public struct ManiPaymentModeRow: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let title: String
     private let icon: ManiIconName
     private let isSelected: Bool
-    @Binding private var amountText: String
+    @Binding var amountText: String
     private let onToggle: (Bool) -> Void
 
     public init(
@@ -47,7 +47,7 @@ public struct ManiPaymentModeRow: View {
         .clipShape(RoundedRectangle(cornerRadius: theme.radii.card, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: theme.radii.card, style: .continuous)
-                .strokeBorder(isSelected ? theme.base.success : theme.base.border, lineWidth: isSelected ? 2 : 1)
+                .maniBorder(isSelected ? theme.base.success : theme.base.border, lineWidth: isSelected ? 2 : 1)
         )
     }
 }

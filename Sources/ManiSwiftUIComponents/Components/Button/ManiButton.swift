@@ -7,7 +7,7 @@ public enum ManiButtonKind: Sendable {
 }
 
 public struct ManiButton: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
 
     private let title: String
     private let icon: ManiIconName?
@@ -53,7 +53,7 @@ public struct ManiButton: View {
         .clipShape(RoundedRectangle(cornerRadius: theme.radii.button, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: theme.radii.button, style: .continuous)
-                .strokeBorder(kind == .outline ? theme.base.border : .clear, lineWidth: 1)
+                .maniBorder(kind == .outline ? theme.base.border : .clear, lineWidth: 1)
         )
         .opacity(isEnabled ? 1 : 0.5)
         .disabled(!isEnabled || isLoading)

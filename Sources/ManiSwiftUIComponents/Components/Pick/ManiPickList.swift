@@ -23,9 +23,9 @@ public struct ManiPickOption<Value: Hashable>: Identifiable {
 
 /// A single-choice radio list (shop type, language, printer, environment, font, store…).
 public struct ManiPickList<Value: Hashable>: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let options: [ManiPickOption<Value>]
-    @Binding private var selection: Value
+    @Binding var selection: Value
 
     public init(options: [ManiPickOption<Value>], selection: Binding<Value>) {
         self.options = options
@@ -58,7 +58,7 @@ public struct ManiPickList<Value: Hashable>: View {
                         Spacer()
                         ZStack {
                             Circle()
-                                .strokeBorder(isSelected ? theme.accent.accent : theme.base.border, lineWidth: 2)
+                                .maniBorder(isSelected ? theme.accent.accent : theme.base.border, lineWidth: 2)
                                 .frame(width: 22, height: 22)
                             if isSelected {
                                 Circle().fill(theme.accent.accent).frame(width: 12, height: 12)
@@ -71,7 +71,7 @@ public struct ManiPickList<Value: Hashable>: View {
                     .clipShape(RoundedRectangle(cornerRadius: theme.radii.card, style: .continuous))
                     .overlay(
                         RoundedRectangle(cornerRadius: theme.radii.card, style: .continuous)
-                            .strokeBorder(isSelected ? theme.accent.accent : theme.base.border, lineWidth: 1)
+                            .maniBorder(isSelected ? theme.accent.accent : theme.base.border, lineWidth: 1)
                     )
                 }
                 .buttonStyle(.plain)
@@ -82,9 +82,9 @@ public struct ManiPickList<Value: Hashable>: View {
 
 /// A row of colour circles; the selected one gets a ring and a checkmark.
 public struct ManiSwatchRow<Value: Hashable>: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let options: [(value: Value, title: String, color: Color)]
-    @Binding private var selection: Value
+    @Binding var selection: Value
 
     public init(options: [(value: Value, title: String, color: Color)], selection: Binding<Value>) {
         self.options = options
@@ -103,7 +103,7 @@ public struct ManiSwatchRow<Value: Hashable>: View {
                             ZStack {
                                 Circle().fill(option.color).frame(width: 40, height: 40)
                                 if isSelected {
-                                    Circle().strokeBorder(theme.base.text, lineWidth: 2).frame(width: 48, height: 48)
+                                    Circle().maniBorder(theme.base.text, lineWidth: 2).frame(width: 48, height: 48)
                                     IconView(.check, size: 16, color: .white)
                                 }
                             }

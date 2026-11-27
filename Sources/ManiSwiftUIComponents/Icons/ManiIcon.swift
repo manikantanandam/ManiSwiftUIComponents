@@ -99,7 +99,7 @@ public struct IconView: View {
     }
 
     public var body: some View {
-        Image(systemName: name.rawValue)
+        Image(systemName: ManiSymbol.name(name.rawValue))
             .font(.system(size: size, weight: .regular))
             .foregroundStyle(color ?? .primary)
             .frame(width: size, height: size)

@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A POS product grid tile with a quantity badge and +/- controls.
 public struct ManiItemTile: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let imageURL: URL?
     private let title: String
     private let priceText: String
@@ -59,7 +59,7 @@ public struct ManiItemTile: View {
         .clipShape(RoundedRectangle(cornerRadius: theme.radii.card, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: theme.radii.card, style: .continuous)
-                .strokeBorder(theme.base.border, lineWidth: 1)
+                .maniBorder(theme.base.border, lineWidth: 1)
         )
     }
 

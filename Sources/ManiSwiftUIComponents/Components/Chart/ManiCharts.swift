@@ -23,8 +23,8 @@ public struct ManiSplitSegment: Identifiable, Sendable {
 }
 
 /// Card wrapper shared by the chart components.
-private struct ChartCard<Content: View>: View {
-    @Environment(\.maniTheme) private var theme
+struct ChartCard<Content: View>: View {
+    @Environment(\.maniTheme) var theme
     let title: String
     let caption: String?
     @ViewBuilder let content: Content
@@ -51,7 +51,7 @@ private struct ChartCard<Content: View>: View {
 
 /// Vertical bars with labels underneath; the tallest bar is solid accent, the rest soft.
 public struct ManiBarChartCard: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let title: String
     private let caption: String?
     private let bars: [ManiChartDatum]
@@ -96,7 +96,7 @@ public struct ManiBarChartCard: View {
 
 /// A simple polyline with a soft fill underneath.
 public struct ManiLineChartCard: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let title: String
     private let caption: String?
     private let values: [Double]
@@ -148,7 +148,7 @@ public struct ManiLineChartCard: View {
 
 /// One horizontal bar split into proportional segments (e.g. Cash / UPI / Card), with a legend.
 public struct ManiSplitBarCard: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let title: String
     private let caption: String?
     private let segments: [ManiSplitSegment]

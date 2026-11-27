@@ -4,7 +4,7 @@ import SwiftUI
 /// right, and a remove affordance — distinct from `ManiItemTile` (a catalog grid cell)
 /// and `ManiListRow` (no built-in trailing remove button).
 public struct ManiCartLineRow: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let title: String
     private let subtitle: String
     private let totalText: String
@@ -65,7 +65,7 @@ public struct ManiCartLineRow: View {
         .clipShape(RoundedRectangle(cornerRadius: theme.radii.card, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: theme.radii.card, style: .continuous)
-                .strokeBorder(theme.base.border, lineWidth: 1)
+                .maniBorder(theme.base.border, lineWidth: 1)
         )
     }
 }

@@ -1,7 +1,7 @@
 import SwiftUI
 
 public struct ManiChip: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
 
     private let title: String
     private let icon: ManiIconName?
@@ -32,7 +32,7 @@ public struct ManiChip: View {
         .clipShape(RoundedRectangle(cornerRadius: theme.radii.chip, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: theme.radii.chip, style: .continuous)
-                .strokeBorder(isSelected ? theme.accent.accent : theme.base.border, lineWidth: 1)
+                .maniBorder(isSelected ? theme.accent.accent : theme.base.border, lineWidth: 1)
         )
     }
 

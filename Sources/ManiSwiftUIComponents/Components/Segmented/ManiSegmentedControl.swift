@@ -2,10 +2,10 @@ import SwiftUI
 
 /// e.g. the checkout payment-mode control (Cash/UPI/Card/Credit/Split).
 public struct ManiSegmentedControl<T: Hashable>: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
 
     private let options: [(value: T, title: String)]
-    @Binding private var selection: T
+    @Binding var selection: T
 
     public init(selection: Binding<T>, options: [(value: T, title: String)]) {
         self._selection = selection

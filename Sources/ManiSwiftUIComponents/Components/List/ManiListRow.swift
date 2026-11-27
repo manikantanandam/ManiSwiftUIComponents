@@ -2,13 +2,14 @@ import SwiftUI
 
 /// e.g. a bills-list row: avatar, customer name, bill #/time, amount, status.
 public struct ManiListRow: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
 
     private let avatar: ManiAvatar?
     private let title: String
     private let subtitle: String?
     private let value: String?
     private let status: (text: String, kind: ManiStatusKind)?
+    private let badgeSize: ManiBadgeSize
     private let action: (() -> Void)?
 
     public init(
@@ -17,6 +18,7 @@ public struct ManiListRow: View {
         subtitle: String? = nil,
         value: String? = nil,
         status: (text: String, kind: ManiStatusKind)? = nil,
+        badgeSize: ManiBadgeSize = .regular,
         action: (() -> Void)? = nil
     ) {
         self.avatar = avatar
@@ -24,6 +26,7 @@ public struct ManiListRow: View {
         self.subtitle = subtitle
         self.value = value
         self.status = status
+        self.badgeSize = badgeSize
         self.action = action
     }
 
@@ -54,7 +57,7 @@ public struct ManiListRow: View {
                             .foregroundStyle(theme.base.text)
                     }
                     if let status {
-                        ManiStatusBadge(status.text, kind: status.kind)
+                        ManiStatusBadge(status.text, kind: status.kind, size: badgeSize)
                     }
                 }
             }

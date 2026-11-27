@@ -1,7 +1,7 @@
 import SwiftUI
 
 public struct ManiCard<Content: View>: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let padding: CGFloat
     private let content: Content
 
@@ -17,7 +17,7 @@ public struct ManiCard<Content: View>: View {
             .clipShape(RoundedRectangle(cornerRadius: theme.radii.card, style: .continuous))
             .overlay(
                 RoundedRectangle(cornerRadius: theme.radii.card, style: .continuous)
-                    .strokeBorder(theme.base.border, lineWidth: 1)
+                    .maniBorder(theme.base.border, lineWidth: 1)
             )
     }
 }

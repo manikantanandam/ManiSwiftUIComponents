@@ -1,10 +1,10 @@
 import SwiftUI
 
 public struct ManiToggleRow: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let title: String
     private let subtitle: String?
-    @Binding private var isOn: Bool
+    @Binding var isOn: Bool
     private let isLocked: Bool
 
     public init(title: String, subtitle: String? = nil, isOn: Binding<Bool>, isLocked: Bool = false) {

@@ -7,7 +7,7 @@ public enum ManiNoteKind: Sendable {
 }
 
 public struct ManiNote: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let text: String
     private let kind: ManiNoteKind
 
