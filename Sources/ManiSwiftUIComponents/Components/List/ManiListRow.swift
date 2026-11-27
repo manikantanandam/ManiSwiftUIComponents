@@ -2,7 +2,7 @@ import SwiftUI
 
 /// e.g. a bills-list row: avatar, customer name, bill #/time, amount, status.
 public struct ManiListRow: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
 
     private let avatar: ManiAvatar?
     private let title: String

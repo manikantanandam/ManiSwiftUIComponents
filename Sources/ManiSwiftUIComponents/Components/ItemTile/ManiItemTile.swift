@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A POS product grid tile with a quantity badge and +/- controls.
 public struct ManiItemTile: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let imageURL: URL?
     private let title: String
     private let priceText: String

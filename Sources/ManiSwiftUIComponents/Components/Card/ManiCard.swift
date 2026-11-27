@@ -1,7 +1,7 @@
 import SwiftUI
 
 public struct ManiCard<Content: View>: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let padding: CGFloat
     private let content: Content
 

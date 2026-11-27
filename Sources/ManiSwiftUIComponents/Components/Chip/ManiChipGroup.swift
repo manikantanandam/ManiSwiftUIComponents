@@ -5,7 +5,7 @@ import SwiftUI
 public struct ManiChipGroup<T: Hashable>: View {
     private let items: [T]
     private let label: (T) -> String
-    @Binding private var selection: T?
+    @Binding var selection: T?
 
     public init(items: [T], label: @escaping (T) -> String, selection: Binding<T?>) {
         self.items = items

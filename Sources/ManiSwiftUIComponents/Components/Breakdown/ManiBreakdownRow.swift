@@ -8,7 +8,7 @@ public enum ManiBreakdownEmphasis: Sendable {
 /// e.g. checkout's subtotal/discount/round-off/total rows, or a bill
 /// detail's subtotal/paid/balance-due rows.
 public struct ManiBreakdownRow: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let label: String
     private let value: String
     private let emphasis: ManiBreakdownEmphasis

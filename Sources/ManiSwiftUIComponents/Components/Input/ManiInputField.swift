@@ -9,7 +9,8 @@ public enum ManiKeyboardKind: Sendable {
     case email
     case phone
 
-    #if canImport(UIKit)
+    // SkipFuseUI provides `UIKeyboardType` and `keyboardType` on Android.
+    #if canImport(UIKit) || os(Android)
     var uiKeyboardType: UIKeyboardType {
         switch self {
         case .default: .default
@@ -40,11 +41,11 @@ public enum ManiSubmitKind: Sendable {
 }
 
 public struct ManiInputField: View {
-    @Environment(\.maniTheme) private var theme
-    @FocusState private var isFocused: Bool
+    @Environment(\.maniTheme) var theme
+    @FocusState var isFocused: Bool
 
     private let label: String
-    @Binding private var text: String
+    @Binding var text: String
     private let placeholder: String
     private let errorText: String?
     private let keyboard: ManiKeyboardKind
@@ -97,7 +98,9 @@ public struct ManiInputField: View {
                 .onChange(of: focus?.wrappedValue ?? false) { _, newValue in
                     if isFocused != newValue { isFocused = newValue }
                 }
-                #if canImport(UIKit)
+                // Android's default style is an outlined field, which doubled the border drawn below.
+                .textFieldStyle(.plain)
+                #if canImport(UIKit) || os(Android)
                 .keyboardType(keyboard.uiKeyboardType)
                 #endif
                 .frame(minHeight: 52)

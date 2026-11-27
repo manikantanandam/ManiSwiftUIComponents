@@ -8,7 +8,7 @@ public enum ManiKeypadKey: Hashable, Sendable {
 
 /// A 3×4 numeric keypad for amount, weight, quantity, OTP and PIN entry.
 public struct ManiKeypad: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let showsDecimal: Bool
     private let onKey: (ManiKeypadKey) -> Void
 

@@ -5,15 +5,15 @@ import SwiftUI
 /// Previews across themes/styles/color schemes. Not part of the public
 /// component surface a consumer app would ship.
 struct ManiComponentGallery: View {
-    @State private var text = ""
-    @State private var toggleOn = true
-    @State private var segment = "cash"
-    @State private var filter: String?
-    @State private var tabSelection = 0
-    @State private var cashAmount = "583"
-    @State private var keypadText = "250"
-    @State private var pick = "fancy"
-    @State private var swatch = "plum"
+    @State var text = ""
+    @State var toggleOn = true
+    @State var segment = "cash"
+    @State var filter: String?
+    @State var tabSelection = 0
+    @State var cashAmount = "583"
+    @State var keypadText = "250"
+    @State var pick = "fancy"
+    @State var swatch = "plum"
 
     var body: some View {
         ScrollView {

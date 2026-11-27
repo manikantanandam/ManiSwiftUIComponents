@@ -1,7 +1,7 @@
 import SwiftUI
 
 public struct ManiChip: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
 
     private let title: String
     private let icon: ManiIconName?

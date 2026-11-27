@@ -1,7 +1,7 @@
 import SwiftUI
 
 public struct ManiAvatar: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let initials: String?
     private let imageURL: URL?
     private let size: CGFloat

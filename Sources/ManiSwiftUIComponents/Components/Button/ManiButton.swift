@@ -7,7 +7,7 @@ public enum ManiButtonKind: Sendable {
 }
 
 public struct ManiButton: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
 
     private let title: String
     private let icon: ManiIconName?

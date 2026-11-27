@@ -4,7 +4,7 @@ import SwiftUI
 /// right, and a remove affordance — distinct from `ManiItemTile` (a catalog grid cell)
 /// and `ManiListRow` (no built-in trailing remove button).
 public struct ManiCartLineRow: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let title: String
     private let subtitle: String
     private let totalText: String

@@ -13,10 +13,10 @@ public extension EnvironmentValues {
     }
 }
 
-private struct ManiThemeModifier: ViewModifier {
+struct ManiThemeModifier: ViewModifier {
     let theme: any ManiTheme
     let style: ManiStyle
-    @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.colorScheme) var colorScheme
 
     func body(content: Content) -> some View {
         content.environment(\.maniTheme, ManiThemeContext.resolve(theme: theme, style: style, scheme: colorScheme))

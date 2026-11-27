@@ -16,7 +16,7 @@ public enum ManiBadgeSize: Sendable {
 }
 
 public struct ManiStatusBadge: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let text: String
     private let kind: ManiStatusKind
     private let size: ManiBadgeSize

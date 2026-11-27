@@ -2,7 +2,7 @@ import SwiftUI
 
 /// "Step 2 of 4" with a segmented progress bar, for onboarding.
 public struct ManiStepIndicator: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let current: Int
     private let total: Int
 
@@ -29,7 +29,7 @@ public struct ManiStepIndicator: View {
 
 /// Centred icon, title, message and optional action — empty lists, "check your inbox", locked features.
 public struct ManiEmptyState: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let icon: ManiIconName
     private let title: String
     private let message: String?
@@ -78,7 +78,7 @@ public enum ManiAuthProvider: Sendable {
 /// "Continue with Google" style button. Brand logos are passed in by the app (brand rules
 /// forbid redrawing them); without one, a generic icon is shown.
 public struct ManiProviderButton: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let provider: ManiAuthProvider
     private let title: String
     private let logo: Image?
@@ -125,7 +125,7 @@ public struct ManiProviderButton: View {
 
 /// Fixed-length code display: OTP boxes, or PIN dots when `secure`. Input comes from a `ManiKeypad`.
 public struct ManiCodeField: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let length: Int
     private let code: String
     private let secure: Bool
@@ -167,7 +167,7 @@ public struct ManiCodeField: View {
 
 /// "82 of 100 free bills" style usage bar that turns amber near the limit and red at it.
 public struct ManiProgressMeter: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let label: String
     private let value: Double
     private let total: Double
@@ -212,7 +212,7 @@ public struct ManiProgressMeter: View {
 
 /// A floating bar offering to undo a just-made change while a countdown runs.
 public struct ManiUndoBanner: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let message: String
     private let actionTitle: String
     private let action: () -> Void

@@ -1,7 +1,7 @@
 import SwiftUI
 
 public struct ManiKPITile: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let title: String
     private let value: String
     private let isHighlighted: Bool

@@ -3,7 +3,7 @@ import SwiftUI
 /// A rows × columns grid of on/off cells, e.g. permissions by role, plan features, or attendance.
 /// Locked cells can't be toggled (shown with a lock).
 public struct ManiPermissionMatrix<Row: Hashable, Column: Hashable>: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let columns: [(value: Column, title: String)]
     private let rows: [(value: Row, title: String)]
     private let value: (Row, Column) -> Bool

@@ -23,9 +23,9 @@ public struct ManiPickOption<Value: Hashable>: Identifiable {
 
 /// A single-choice radio list (shop type, language, printer, environment, font, store…).
 public struct ManiPickList<Value: Hashable>: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let options: [ManiPickOption<Value>]
-    @Binding private var selection: Value
+    @Binding var selection: Value
 
     public init(options: [ManiPickOption<Value>], selection: Binding<Value>) {
         self.options = options
@@ -82,9 +82,9 @@ public struct ManiPickList<Value: Hashable>: View {
 
 /// A row of colour circles; the selected one gets a ring and a checkmark.
 public struct ManiSwatchRow<Value: Hashable>: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let options: [(value: Value, title: String, color: Color)]
-    @Binding private var selection: Value
+    @Binding var selection: Value
 
     public init(options: [(value: Value, title: String, color: Color)], selection: Binding<Value>) {
         self.options = options

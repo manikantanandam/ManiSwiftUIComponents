@@ -1,11 +1,11 @@
 import SwiftUI
 
 public struct ManiSearchField: View {
-    @Environment(\.maniTheme) private var theme
-    @Binding private var text: String
+    @Environment(\.maniTheme) var theme
+    @Binding var text: String
     private let placeholder: String
     private let focus: Binding<Bool>?
-    @FocusState private var isFocused: Bool
+    @FocusState var isFocused: Bool
 
     /// - Parameter focus: optional two-way focus binding so a parent can react to / drive focus.
     public init(text: Binding<String>, placeholder: String = "Search", focus: Binding<Bool>? = nil) {
@@ -18,6 +18,8 @@ public struct ManiSearchField: View {
         HStack(spacing: ManiSpacing.sm) {
             IconView(.search, size: 16, color: theme.base.textSecondary)
             TextField(placeholder, text: $text)
+                // Android's default style is an outlined field, which doubled the border drawn below.
+                .textFieldStyle(.plain)
                 .font(theme.typography.body)
                 .foregroundStyle(theme.base.text)
                 .focused($isFocused)

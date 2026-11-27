@@ -3,7 +3,7 @@ import SwiftUI
 /// The "CartBar" from the spec — a floating bar above the tab bar, e.g.
 /// checkout's "Collect ₹583" / "Hold bill".
 public struct ManiActionBar: View {
-    @Environment(\.maniTheme) private var theme
+    @Environment(\.maniTheme) var theme
     private let summaryText: String?
     private let primaryTitle: String
     private let primaryAction: () -> Void
